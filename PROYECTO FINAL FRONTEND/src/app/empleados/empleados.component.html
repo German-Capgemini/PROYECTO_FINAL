@@ -1,0 +1,65 @@
+
+<div class="card border-primary mb-3">
+
+  <div class="card-body text-primary">
+
+    <h4 class="text-center" >Listado de empleados</h4 >
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-hover table-white ">
+      <thead class="thead-dark">
+        <tr class="text-center">
+
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Sueldo</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Proyecto</th>
+          <th *ngIf="authService.token">
+           Accion
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of empleados; let i = index"  class="text-center">
+
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellido}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.telefono}}</td>
+          <td>{{item.sueldo}} </td>
+          <td>{{item.departamento.nombre}}</td>
+          <td>{{item.proyecto.nombre}}</td>
+
+          <td *ngIf="authService.token">
+
+            <button class="btn btn-info btn-sm m-2" [routerLink]="['/empleados/ver',item.id]" >Ver</button>
+            <button class="btn btn-primary btn-sm m-2" [routerLink]="['/empleados/editar',item.id]">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="delete(item)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+    <div class="my-2 text-center">
+      <button
+            class="btn btn.rounded btn-primary"
+            type="button"
+            [routerLink]="['/empleados/crear']" >
+      Nuevo Empleado
+     </button>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+

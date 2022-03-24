@@ -1,0 +1,63 @@
+
+
+<div class="card border-primary mb-3">
+
+  <div class="card-body text-primary">
+
+    <h4 class="text-center" >Listado de proyectos</h4 >
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-hover table-white ">
+      <thead class="thead-dark">
+        <tr class="text-center">
+
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Fecha de Inicio</th>
+          <th scope="col">Fecha de fin</th>
+
+          <th *ngIf="authService.token">
+           Accion
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of proyectos; let i = index"  class="text-center">
+
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.fechaInicio}}</td>
+          <td>{{item.fechaFin}}</td>
+
+
+          <td *ngIf="authService.token">
+
+            
+            <button class="btn btn-primary btn-sm m-2" [routerLink]="['/proyectos/editar',item.id]">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="delete(item)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+    <div class="my-2 text-center">
+      <button
+            class="btn btn.rounded btn-primary"
+            type="button"
+            [routerLink]="['/proyectos/crear']" >
+      Nuevo proyecto
+     </button>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+
+
+
+<div class="container register" style="margin: 0%; width: 100%;">
+  <div class="row">
+  <div class="col-md-3 register-left text-center">
+
+
+
+  </div>
+  <div class="col-md-9 register-right">
+
+  <div class="tab-content" >
+  <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
+  <h3 class="register-heading">Proyecto</h3>
+  <div class="row register-form">
+  <div class="col-md-6">
+            <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="proyecto.nombre" placeholder="Nombre"  />
+            </div>
+            <div class="form-group">
+            <input type="date" class="form-control" [(ngModel)]="proyecto.fechaInicio"  placeholder="Apellidos"  />
+            </div>
+            <div class="form-group">
+            <input type="date" class="form-control" [(ngModel)]="proyecto.fechaFin"  placeholder="Email"  />
+            </div>
+
+  </div>
+
+
+
+
+  </div>
+
+
+
+
+
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12" style=" text-align: center;">
+      <button *ngIf="!proyecto.id" class="btn btn-primary" (click)="create()">Crear proyecto</button>
+
+      <button *ngIf="proyecto.id" class="btn btn-primary" (click)="update()">Editar proyecto</button>
+
+    </div>
+
+  </div>
+  </div>
+
+
+
+  </div>
+  </div>
+  </div>
+
